@@ -1,0 +1,29 @@
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {
+  },
+  "exceptionLogging": "STACKDRIVER",
+
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/gmail.addons.current.action.compose",
+    "https://www.googleapis.com/auth/gmail.addons.execute",
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/gmail.settings.basic",
+    "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/gmail.modify"
+  ],
+  "gmail": {
+    "name": "RecipientPicker",
+    "logoUrl": "https://cdn.icon-icons.com/icons2/196/PNG/128/email_23863.png",
+    "composeTrigger": {
+      "selectActions": [{
+        "text": "RecipientPicker",
+        "runFunction": "onGmailCompose"
+      }],
+      "draftAccess": "NONE"
+    },
+    "primaryColor": "#0000FF"
+  }
+}
