@@ -3,27 +3,46 @@
   "dependencies": {
   },
   "exceptionLogging": "STACKDRIVER",
-
   "oauthScopes": [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/gmail.addons.current.action.compose",
-    "https://www.googleapis.com/auth/gmail.addons.execute",
-    "https://www.googleapis.com/auth/script.locale",
-    "https://www.googleapis.com/auth/userinfo.email",
-    "https://www.googleapis.com/auth/gmail.settings.basic",
-    "https://www.googleapis.com/auth/gmail.readonly",
-    "https://www.googleapis.com/auth/gmail.modify"
+    "https://www.googleapis.com/auth/spreadsheets", 
+    "https://www.googleapis.com/auth/gmail.addons.current.action.compose", 
+    "https://www.googleapis.com/auth/gmail.addons.execute", 
+    "https://www.googleapis.com/auth/script.locale"
   ],
-  "gmail": {
-    "name": "RecipientPicker",
-    "logoUrl": "https://cdn.icon-icons.com/icons2/196/PNG/128/email_23863.png",
-    "composeTrigger": {
-      "selectActions": [{
-        "text": "RecipientPicker",
-        "runFunction": "onGmailCompose"
+  "runtimeVersion": "V8",
+  "addOns": {
+    "common": {
+      "homepageTrigger": {
+        "runFunction": "onDefaultHomePageOpen",
+        "enabled": true
+      },
+      "layoutProperties": {
+        "primaryColor": "orange",
+        "secondaryColor": "#000000"
+      },
+      "logoUrl": "https://icon-icons.com/icons2/909/PNG/32/insert-template_icon-icons.com_70939.png",
+      "name": "Demo Google Workspace Add-on",
+      "openLinkUrlPrefixes": [
+        "https://mail.google.com/",
+        "https://script.google.com/a/google.com/d/",
+        "https://drive.google.com/a/google.com/file/d/",
+        "https://en.wikipedia.org/wiki/",
+        "https://www.example.com/"
+      ],
+      "universalActions": [{
+        "label": "Open settings",
+        "runFunction": "createSettingsResponse"
       }],
-      "draftAccess": "NONE"
+      "useLocaleFromApp": true
     },
-    "primaryColor": "#0000FF"
+    "gmail": {
+      "composeTrigger": {
+        "selectActions": [{
+          "text": "テンプレートから本文作成",
+          "runFunction": "onGmailCompose"
+        }],
+        "draftAccess": "NONE"
+      }
+    }
   }
 }
