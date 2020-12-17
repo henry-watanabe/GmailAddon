@@ -5,6 +5,11 @@ const placeHolders = ["${バージョン}", "${管理番号}"];
 let paramMap = {};
 const titleRegExp = new RegExp('\\$\\{(.*)\\}');
 
+/**
+ * Gmail新規作成ウィンドウのツールパレットからアドオンが起動された場合に呼ばれるハンドラー
+ * 
+ * @param {Event} e この関数を呼び出すトリガーとなったイベント
+ */
 function onGmailCompose(e) {
   console.log(e);
   
