@@ -61,6 +61,10 @@ function onGmailCompose(e) {
   return card.build();
 }
 
+/**
+ * メール本文作成
+ * @param {Event} e 呼び出し元のイベント
+ */
 function onGmailComposeBody(e) {
   console.log(e);
   
