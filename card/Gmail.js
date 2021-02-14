@@ -3,7 +3,6 @@
  * アドオン画面の初期化を行う。
  */
 function onGmailCompose(e) {
-  // new AddonLogger().info('onGmailCompose');
   Logger.log('user:' + Session.getActiveUser().getUserLoginId());
 
   // 配列を返さないと Android の Gmail アプリでコケる
@@ -37,17 +36,9 @@ function createMainCard(e) {
     return createErrorCard('宛先一覧のスプレッドシートが設定されていません。\r設定画面より設定してください。');
   }
 
-  // let suggestionsAction = CardService.newAction()
-  //   .setFunctionName('suggestGroupName');
-
   let mainSection = CardService.newCardSection()
     .addWidget(CardService.newDecoratedText().setText('宛先一覧とグループ名を選択してください'))
     .addWidget(fileDropDown)
-    // .addWidget(CardService.newTextInput()
-    //   .setTitle('グループ名')
-    //   .setFieldName('groupNameText')
-    //   .setSuggestionsAction(suggestionsAction)
-    // )
     ;
 
   // 宛先一覧ドロップダウンでファイルが選択されているときはそのファイルにある宛先グループと選択ボタンをリスト表示する
@@ -88,21 +79,8 @@ function createMainCard(e) {
           .setFunctionName('onGmailInsertRecipient')
         )
       )
-      .setSecondaryButton(CardService.newTextButton()
-        .setText('ダイアログを開く')
-        .setOnClickAction(CardService.newAction()
-          .setFunctionName('onOpenDialog')
-        )
-      )
     )
     .build();
-}
-
-/**
- * @deprecated
- */
-function onOpenDialog(e) {
-  const html = HtmlService.createHtmlOutputFromFile('dialog');
 }
 
 function onFileSelected(e) {
@@ -175,7 +153,7 @@ function onGmailInsertRecipient(e) {
 /**
  * エラー画面（カード）を作成する。
  * build() は呼び出しもとで実施すること。
- * 
+ *
  * @module Gmail.gs
  * @param {string} message エラー画面に表示するメッセージ
  * @return エラー画面
