@@ -28,14 +28,6 @@ function onDefaultHomePageOpen(e) {
       .addWidget(CardService.newDecoratedText().setText('<font color="#FF0000">初めての方は右上の三点リーダーから宛先一覧の設定をしてください。</font>').setWrapText(true))
       .addWidget(CardService.newImage().setImageUrl(encodedImageUrl))
     )
-    .setFixedFooter(CardService.newFixedFooter()
-      .setPrimaryButton(CardService.newTextButton()
-        .setText('宛先一覧の設定をクリアする')
-        .setOnClickAction(CardService.newAction()
-          .setFunctionName('onClearSetting')
-        )
-      )
-    )
     .build();
 }
 

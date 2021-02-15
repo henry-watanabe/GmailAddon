@@ -29,7 +29,7 @@ class RecipientListSheet {
       this._sheet = file.getSheetByName(SHEET_NAME);
     } catch (e) {
       Logger.log(e);
-      throw Error('引数の fileId に対応するスプレッドシートが存在しません。[fileId: ' + fileId + '; fileName: ' + this.fileName + ']');
+      throw Error('引数の fileId に対応するスプレッドシートが存在しません。[fileId: ' + fileId + ']');
     }
   }
 
