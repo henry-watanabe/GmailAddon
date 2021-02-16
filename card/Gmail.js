@@ -4,7 +4,6 @@
  */
 function onGmailCompose(e) {
   Logger.log('user:' + Session.getActiveUser().getUserLoginId());
-
   // 配列を返さないと Android の Gmail アプリでコケる
   return [createMainCard(e)];
 }
